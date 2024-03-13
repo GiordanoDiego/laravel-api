@@ -24,9 +24,9 @@ class DatabaseSeeder extends Seeder
         // Chiamate ai seeders
         $this->call([
             TypeSeeder::class,
+            TechnologySeeder::class,
             ProjectSeeder::class,
             UserSeeder::class,
-            TechnologySeeder::class
         ]);
     }
 }

@@ -28,6 +28,14 @@
                     {{ $project->content }}
                 </p>
 
+                <h2>Tecnologie associate:</h2>
+                <ul>
+                    @foreach ($project->technologies as $technology)
+                        <li>{{ $technology->title }}</li>
+                    @endforeach
+                </ul>
+
+
                 <div class="text-center">
                     <a href="{{ route('admin.project.index') }}">Torna indietro</a>
                 </div>

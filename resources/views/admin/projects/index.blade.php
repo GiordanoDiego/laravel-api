@@ -48,13 +48,11 @@
                                     </td>
                                     <td>
                                         <div>
-                                            @forelse ($project->technologies as $technology)
-                                                <a href="{{ route('admin.technologies.show', ['tag' => $tag->id]) }}" class="badge rounded-pill text-bg-primary">
+                                            @foreach ($project->technologies as $technology)
+                                                <a href="{{ route('admin.technologies.show', ['technology' => $technology->id]) }}" class="badge rounded-pill text-bg-primary">
                                                     {{ $technology->title }}
                                                 </a>
-                                            @empty
-                                                -
-                                            @endforelse
+                                            @endforeach
                                         </div>
                                     </td>
 

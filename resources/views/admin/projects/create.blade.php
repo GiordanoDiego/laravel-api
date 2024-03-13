@@ -18,15 +18,6 @@
                 </a>
             </div>
             
-            {{-- @if($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{$error}}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif --}}
 
             <form action="{{ route('admin.project.store') }}" method="POST">
                 @csrf
@@ -55,7 +46,6 @@
                 </div>
 
                 {{-- tipo --}}
-                {{-- tipo --}}
                 <div class="mb-3">
                     <label for="type_id" class="form-label">Tipo</label>
                     <select name="type_id" id="type_id" class="form-select">
@@ -69,6 +59,22 @@
                         @endforeach
                     </select>
                 </div>
+
+                {{-- tecnologie --}}
+                <div class="mb-3">
+                    <label class="form-label">Tecnologie</label>
+                    <div>
+                        @foreach ($technologies as $technology)
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="technologies[]" value="{{ $technology->id }}" id="technology_{{ $technology->id }}">
+                                <label class="form-check-label" for="technology_{{ $technology->id }}">
+                                    {{ $technology->title }}
+                                </label>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+
     
                 <div>
                     <button type="submit" class="btn btn-success w-100">

@@ -43,7 +43,7 @@
                     @enderror
                 </div>
 
-                {{-- tipo --}}
+              
                 {{-- tipo --}}
                 <div class="mb-3">
                     <label for="type_id" class="form-label">Tipo</label>
@@ -56,6 +56,23 @@
                         @endforeach
                     </select>
                 </div>
+
+                {{-- tecnologie associate --}}
+                {{-- tutte le tecnologie disponibili --}}
+                <div class="mb-3">
+                    <label class="form-label">Tutte le tecnologie</label>
+                    <div>
+                        @foreach ($allTechnologies as $technology)
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="technologies[]" value="{{ $technology->id }}" id="technology_{{ $technology->id }}" {{ $project->technologies->contains($technology->id) ? 'checked' : '' }}>
+                                <label class="form-check-label" for="technology_{{ $technology->id }}">
+                                    {{ $technology->title }}
+                                </label>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+
 
     
                 <div>
